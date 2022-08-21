@@ -10,19 +10,16 @@ cd downloads
 ls replicated.pem
 ls -al replicated.pem
 chmod 400 replicated.pem 
-ssh -i wordpress.pem ubuntu@ec2-54-191-26-84.us-west-2.compute.amazonaws.com
-ssh -i "wordpress.pem" ec2-user@ec2-54-193-9-205.us-west-1.compute.amazonaws.com
+ssh -i replicated.pem ubuntu@ec2-54-191-26-84.us-west-2.compute.amazonaws.com
+
 sudo su -
 ls
-tar
+tar xvzf replicated_0.40.2_linux_386.tar.gz
 sudo su -
+export REPLICATED_API_TOKEN=de67a601c578234f5c0b9e7291fc580c7554acff7a0e50212409fab321bd3095
 replicated release ls
-export REPLICATED_API_TOKEN=73696d43086d841abd5f988bb877833c9c82a499717566e7a2bf942533795640
 
 
-
-
-enter the API token in 
 curl -sSL https://kurl.sh/wordpress-mayfly-unstable | sudo bash
 mkdir replicated-cli-tutorial
 
@@ -41,3 +38,6 @@ ls -al replicated.pem
 chmod 400 replicated.pem
 ls -al replicated.pem
 ssh -i "replicated.pem" ubuntu@ec2-54-191-26-84.us-west-2.compute.amazonaws.com
+
+
+ssh -i "wordpress.pem" ec2-user@ec2-54-193-9-205.us-west-1.compute.amazonaws.com
