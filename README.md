@@ -6,6 +6,7 @@ This is a demo for packagin Wordpress and MySQL as a Kots applications
 
 # kots-wordpress
 Pwd 
+
 cd downloads
 ls replicated.pem
 ls -al replicated.pem
