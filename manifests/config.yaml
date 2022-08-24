@@ -1,0 +1,13 @@
+apiVersion: kots.io/v1beta1
+kind: Config
+metadata:
+  name: wordpress-config
+spec:
+  groups:
+    - name: wordpress
+      title: Wordpress
+      description: Wordpress 
+      items:
+        - name: wp-port
+          title: wordpress port
+          type: text
