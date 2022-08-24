@@ -71,15 +71,4 @@ spec:
               message: OpenShift is not supported
           - pass:
               message: The cluster is not OpenShift
-    - mysql:
-        checkName: Must be MySQL 8.x or later
-        collectorName: mysql
-        outcomes:
-          - fail:
-              when: connected == false
-              message: Cannot connect to MySQL server
-          - fail:
-              when: version < 8.x
-              message: The MySQL server must be at least version 8
-          - pass:
-              message: The MySQL server is ready
+   
