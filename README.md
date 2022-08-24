@@ -24,20 +24,27 @@ This is a demo for packaging Wordpress and MySQL as a Kots application
 - Create a new application and name it 
 - Select the releases tab of the Vendor portal, click "create release," delete the existing example yaml files and upload the yaml files from the `manifests` directory of this repo.  This includes files for Wordpress, MySQL and the Kots specific yaml specs.  Creating the release can also be done via the Replicated CLI (if this method is preferred see ths page in the [Replicated Quickstart Docs](https://docs.replicated.com/vendor/tutorial-installing-with-cli))
 - Create a release and promote that release to the Unstable deployment channel
-2. Create a customer and download an application license
-- Select "Customers" on the left menu of the Replicated Vendor Portal. create a new customer and assign the customer to the "unstable" channel
-- At the bottom of the Unstable channel select the "embedded" cluster option and copy that command
-3. Install the Kots kubectl plugin via the command line:
+2. Modify the Kubernetes Installer
+- Open the installer.yaml file from this repo and copy it.
+- On the left menu of the Replicated Vendor Portal, click on "Kubernetes Installer" and create a new installer.  Paste the contents of installer.yaml into the window and save.
+- Promote the new installer to channel: Unstable
+3. Create a customer and download an application license
+- Select "Customers" on the left menu of the Replicated Vendor Portal. create a new customer and assign the customer to the "unstable" channel.  Select a date for the customer to expire and select "Trial" for the license type.
+- After customer saving the customer profile, download the customer license using the first of the three icons on the right side of the screen.
+4. Install the Kots kubectl plugin via the command line:
 ```shell
 curl https://kots.io/install | bash
 ```
-4. Test the deployment: 
+5. Install the Application via the command line
+- Return to the Channels page and at the bottom of the Unstable channel select the "embedded" cluster option and copy that command
+- Paste the install command in your CLI
+6. Test the deployment: 
 - Choose `your namespace` which will be the namespace for every component of the application and in the Kots admin console
 ```shell
 kubectl kots install your-app-slug
 ```
 You will be prompted to provide a namespace to install into as well as a password (to control access to the admin console), and then to connect to http://localhost:30888 , where you can login with the password you just specified, and then upload the customer license.
-5. Clean up
+7. Clean up
 ```shell
 kubectl delete ns your-namespace
 ```
