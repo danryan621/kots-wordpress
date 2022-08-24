@@ -62,11 +62,11 @@ spec:
           - pass:
               message: There are at least 2 cores in the cluster
     - nodeResources:
-        checkName: Must have at least 3 nodes in the cluster
+        checkName: Must have at least 2 nodes in the cluster
         outcomes:
           - fail:
-              when: "count() < 3"
-              message: This application requires at least 3 nodes
+              when: "count() < 2"
+              message: This application requires at least 2 nodes
           - pass:
               message: This cluster has enough nodes.
     - distribution:
