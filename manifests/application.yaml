@@ -1,7 +1,7 @@
-apiVersion: app/v1
+apiVersion: kots.io/v1beta1
 kind: Application
 metadata:
-  name: "wordpress-mayfly"
+  name: wordpress-application
   labels:
     app.kubernetes.io/name: "wordpress-mayfly"
     app.kubernetes.io/version: "1.0.0"
