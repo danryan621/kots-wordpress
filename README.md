@@ -36,7 +36,7 @@ curl https://kots.io/install | bash
 ```shell
 kubectl kots install your-app-slug
 ```
-You will be prompted to provide a namespace to install into as well as a password (to control access to the admin console), and then to connect to http://localhost:8800 , where you can login with the password you just specified, and then upload the customer license.
+You will be prompted to provide a namespace to install into as well as a password (to control access to the admin console), and then to connect to http://localhost:30888 , where you can login with the password you just specified, and then upload the customer license.
 5. Clean up
 ```shell
 kubectl delete ns your-namespace
