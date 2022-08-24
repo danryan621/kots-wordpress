@@ -58,12 +58,17 @@ spec:
         outcomes:
           - fail:
               when: "sum(cpuCapacity) < 1"
-              message: The cluster must contain at least 2 cores
-          - fail:
-              when: "sum(cpuCapacity) < 1"
-              message: The cluster must contain at least 4 cores
+              message: The cluster must contain at least 1 core
           - pass:
               message: There are at least 2 cores in the cluster
+    - nodeResources:
+        checkName: Must have at least 3 nodes in the cluster
+        outcomes:
+          - fail:
+              when: "count() < 3"
+              message: This application requires at least 3 nodes
+          - pass:
+              message: This cluster has enough nodes.
     - distribution:
         outcomes:
           - fail:
