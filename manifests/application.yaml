@@ -1,7 +1,7 @@
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
-  name: "wordpress-application"
+  name: "wordpress"
   labels:
     app.kubernetes.io/name: "wordpress"
     app.kubernetes.io/version: 1.0.0
