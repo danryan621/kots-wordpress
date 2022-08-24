@@ -4,12 +4,12 @@ metadata:
   name: "wordpress"
   labels:
     app.kubernetes.io/name: "wordpress"
-    app.kubernetes.io/version: 1.0.0
+    app.kubernetes.io/version: "1.0.0"
 spec:
   selector:
     matchLabels:
      app.kubernetes.io/name: "wordpress"
   descriptor:
     links:
-      - description: "Check Application"
-        url: http://54.191.26.84:repl{{ ConfigOption "wp-port" }}
+      - description: "Check Wordpress!"
+        url: http://192.168.86.103:repl{{ ConfigOption "wp-port" }}
