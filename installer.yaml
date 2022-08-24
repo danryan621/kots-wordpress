@@ -1,23 +1,27 @@
 apiVersion: "cluster.kurl.sh/v1beta1"
 kind: "Installer"
 metadata: 
-  name: "2f62d70"
+  name: "935c62b"
 spec: 
   kubernetes: 
-    version: "1.20.0"
+    version: "latest"
   weave: 
     version: "2.6.x"
   contour: 
     version: "1.22.x"
-  prometheus: 
-    version: "0.58.x"
   registry: 
     version: "2.8.x"
   containerd: 
     version: "1.5.x"
+  kotsadm: 
+    version: "latest"
+    applicationSlug: "wordpress-mayfly"
+    applicationNamespace: "default"
   ekco: 
     version: "latest"
   minio: 
     version: "2022-08-02T23-59-16Z"
-  longhorn: 
-    version: "1.3.x"
+  openebs: 
+    version: "latest"
+    localPVStorageClassName: "default"
+    isLocalPVEnabled: true
