@@ -30,27 +30,27 @@ This is a demo for packaging Wordpress and MySQL as a Kots application
 - [Get YAML Manifest Files](https://docs.replicated.com/vendor/tutorial-installing-with-cli#get-yaml-manifest-files)
 - [Verify the Manifest Files](https://docs.replicated.com/vendor/tutorial-installing-with-cli#verify-the-manifest-files)
 - [Initialize the Repository](https://docs.replicated.com/vendor/tutorial-installing-with-cli#initialize-the-repository)
-4. Modify the Kubernetes Installer
+3. Modify the Kubernetes Installer
 - Open the installer.yaml file from this repo and copy it.
 - On the left menu of the Replicated Vendor Portal, click on "Kubernetes Installer" and create a new installer.  Paste the contents of installer.yaml into the window and save.
 - Promote the new installer to channel: Unstable
-5. Create a customer and download an application license
+4. Create a customer and download an application license
 - Select "Customers" on the left menu of the Replicated Vendor Portal. create a new customer and assign the customer to the "unstable" channel.  Select a date for the customer to expire and select "Trial" for the license type.
 - After customer saving the customer profile, download the customer license using the first of the three icons on the right side of the screen.
-6. Install the Kots kubectl plugin via the command line:
+5. Install the Kots kubectl plugin via the command line:
 ```shell
 curl https://kots.io/install | bash
 ```
-5. Install the Application via the command line
+6. Install the Application via the command line
 - Return to the Channels page and at the bottom of the Unstable channel select the "embedded" cluster option and copy that command
 - Paste the install command in your CLI
-6. Test the deployment: 
+7. Test the deployment: 
 - Choose `your namespace` which will be the namespace for every component of the application and in the Kots admin console
 ```shell
 kubectl kots install your-app-slug
 ```
 You will be prompted to provide a namespace to install into as well as a password (to control access to the admin console), and then to connect to http://localhost:30888 , where you can login with the password you just specified, and then upload the customer license.
-7. Clean up
+8. Clean up
 ```shell
 kubectl delete ns your-namespace
 ```
