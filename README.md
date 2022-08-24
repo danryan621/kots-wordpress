@@ -3,20 +3,20 @@ This is a demo for packaging Wordpress and MySQL as a Kots application
 
 # YAML File overview
 ## Kots specific yaml files
-- config.yaml: Enables a config option in the main menu bar that allows the port to be changed
-- preflight.yaml: Contains preflight checks for the environment and others based on the Kubernetes installer file to ensure that the environment is set up appropriately for the application
-- support-bundle.yaml
-- dashboard.yaml: Enables two convenience dashboard buttons: 1) Go direct to the app 2) View the Github Repo for the application
-- db-configmap.yaml: 
-- wp-db-secrets.yaml
+- __config.yaml__: Enables a config option in the main menu bar that allows the port to be changed
+- __preflight.yaml__: Contains preflight checks for the environment and others based on the Kubernetes installer file to ensure that the environment is set up appropriately for the application
+- __support-bundle.yaml__: Collects neceesary cluster data and sets apprpriate logging limits
+- __dashboard.yaml__: Enables two convenience dashboard buttons: 1) Go direct to the app 2) View the Github Repo for the application
+- __db-configmap.yaml__: Creates Database for Wordpress
+- __wp-db-secrets.yaml__: Contains MySQL root password
 ## MySQL specific yaml files
-- mysql-deployment.yaml: Deploys MySQL portion of the application
-- mysql-svc.yaml
-- mysql-volume.yaml
+- __mysql-deployment.yaml__: Deploys MySQL portion of the application
+- __mysql-svc.yaml__: Defines MySQL service parameters
+- __mysql-volume.yaml__: Creates Persistent Volume Claim for MySQL
 ## Wordpress specific yaml files
-- wordpress-deployment.yaml
-- wordpress-volume.yaml
-- wordpress.svc.yaml
+- __wordpress-deployment.yaml__: Deploys Wordpress portion of the application
+- __wordpress-volume.yaml__: Creates Persistent Volume Claim for Wordpress
+- __wordpress.svc.yaml__: Defines Wordpress service parameters
 
 
 # Quick Start
