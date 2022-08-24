@@ -12,4 +12,4 @@ spec:
   descriptor:
     links:
       - description: "Check Wordpress!"
-        url: http://192.168.86.103:repl{{ ConfigOption "wp-port" }}
+        url: http://54.191.26.84:30889
