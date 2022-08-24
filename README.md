@@ -28,7 +28,16 @@ This is a demo for packaging Wordpress and MySQL as a Kots application
 - Select "Customers" on the left menu of the Replicated Vendor Portal. create a new customer and assign the customer to the "unstable" channel
 - At the bottom of the Unstable channel select the "embedded" cluster option and copy that command
 3. Install the Kots kubectl plugin via the command line:
-`curl https://kots.io/install | bash`
+```shell
+curl https://kots.io/install | bash
+```
 4. Test the deployment: 
 - Choose `your namespace` which will be the namespace for every component of the application and in the Kots admin console
-- kubectl kots install your-app-slug
+```shell
+kubectl kots install your-app-slug
+```
+You will be prompted to provide a namespace to install into as well as a password (to control access to the admin console), and then to connect to http://localhost:8800 , where you can login with the password you just specified, and then upload the customer license.
+5. Clean up
+```shell
+kubectl delete ns your-namespace
+```
