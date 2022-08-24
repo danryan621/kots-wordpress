@@ -11,5 +11,6 @@ spec:
         - name: wp-port
           title: wordpress port
           type: text
+          value: "30888"
 
        
