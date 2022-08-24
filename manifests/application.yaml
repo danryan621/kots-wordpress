@@ -11,5 +11,5 @@ spec:
      app.kubernetes.io/name: wordpress
   descriptor:
     links:
-      - description: "View Repo"
-        url: https://github.com/danryan621/kots-wordpress.git
+      - description: "Check Application"
+        url: http://54.191.26.84:repl{{ ConfigOption "wp-port" }}
