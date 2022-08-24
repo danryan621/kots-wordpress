@@ -11,3 +11,11 @@ spec:
         - name: wp-port
           title: wordpress port
           type: text
+  selector:
+    matchLabels:
+     app.kubernetes.io/name: "wordpress-mayfly"
+  descriptor:
+    links:
+      - description: "View Repo"
+        url: https://github.com/danryan621/kots-wordpress.git
+       
