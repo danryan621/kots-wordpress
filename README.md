@@ -18,7 +18,6 @@ This is a demo for packaging Wordpress and MySQL as a Kots application
 - __wordpress-volume.yaml__: Creates Persistent Volume Claim for Wordpress
 - __wordpress.svc.yaml__: Defines Wordpress service parameters
 
-
 # Quick Start
 1. Create a new Kots application in the Replicated Vendor Portal
 - Create a new application and name it 
@@ -66,3 +65,4 @@ kubectl delete ns your-namespace
 - It would be helpful to have a "redeploy option" in "Releases" in case a current deploy broke something and the user wants to redeploy the last version.  Sometimes as I was experimenting, I wanted to try something but then in order to get things back to the way they were, I had to go through the whole process of creating a release that mirrored a previous one
 ## Other
 - The videos on the ReplicatedHQ Youtube channel were helpful however some of them were outdated and I had to be careful which ones to choose since the UI had evolved and some of them were a couple years old
+- So far the videos I've seen have been more like tutorials and product walk throughs. The materials that convey the value of Replicated generally fall into the customer testimonial videos. There could be more done in regards to guiding users and potential customers to the value propositions for Replicated
