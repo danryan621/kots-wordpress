@@ -52,3 +52,17 @@ You will be prompted to provide a namespace to install into as well as a passwor
 ```shell
 kubectl delete ns your-namespace
 ```
+# Replicated Notes
+## Managing Releases with the CLI Documentation Page
+- In some aspects of the Managing Releases with the CLI section, a "$" is left in the beginning of the command.  When you copy using the button on the page it copies the "$" sign resulting in a `command not found`
+### Setting a service token
+- The "New Service Account Window" in the documentation is outdated and no longer shows the permissions field in the same way
+### Adding Buttons and Links
+- The documentation feels a little light on this and required some experimenting before I could get it to work. It wasn't immediately clear to me that you could add multiple links although it can be inferred.
+## Replicated Vendor Portal
+- On the Kubernetes Installer page, it would be helpful to have a link to Kurl.sh and short description, so users don't have to track it down in the docs
+- When creating a customer or release, this is possible through the portal and the CLI.  It would be helpful to have split screen docs to show what can be done in either channel and what is only possible through one or the other.
+- If you have created a release and removed the example files, it seems those don't show up again until you create a new application.  It would be helpful if you could refresh it to show the example files in case you need to reference them again.  
+- It would be helpful to have a "redeploy option" in "Releases" in case a current deploy broke something and the user wants to redeploy the last version.  Sometimes as I was experimenting, I wanted to try something but then in order to get things back to the way they were, I had to go through the whole process of creating a release that mirrored a previous one
+## Other
+- The videos on the ReplicatedHQ Youtube channel were helpful however some of them were outdated and I had to be careful which ones to choose since the UI had evolved and some of them were a couple years old
