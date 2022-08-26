@@ -19,38 +19,49 @@ This is a demo for packaging Wordpress and MySQL as a Kots application
 - __wordpress.svc.yaml__: Defines Wordpress service parameters; the wordpress service type is NodePort which allows external access to the wordpress frontend webui.
 
 # Quick Start
-1. Create a new Kots application in the Replicated Vendor Portal
-- Create a new application and name it 
-- Select the releases tab of the Vendor portal, click "create release," delete the existing example yaml files and upload the yaml files from the `manifests` directory of this repo.  This includes files for Wordpress, MySQL and the Kots specific yaml specs.  Creating the release can also be done via the Replicated CLI (if this method is preferred see this page in the [Replicated Quickstart Docs](https://docs.replicated.com/vendor/tutorial-installing-with-cli))
-- Create a release and promote that release to the Unstable deployment channel
-2. Install the Replicated CLI according to these steps in the Replicated Documentation
+
+## Install the Replicated CLI according to these steps in the Replicated Documentation
 - [Install the Replicated CLI](https://docs.replicated.com/vendor/tutorial-installing-with-cli#install-the-replicated-cli)
-3. Get a service account token using these steps in the Replicated Documentation (Repace cli-quickstart details with your apps details)
-- [Set a Service Account Token](https://docs.replicated.com/vendor/tutorial-installing-with-cli#set-a-service-account-token)
-4. Modify the Kubernetes Installer
-- Open the installer.yaml file from this repo and copy it.
-- On the left menu of the Replicated Vendor Portal, click on "Kubernetes Installer" and create a new installer.  Paste the contents of installer.yaml into the window and save.
-- Promote the new installer to channel: Unstable
-5. Create a customer and download an application license
-- Select "Customers" on the left menu of the Replicated Vendor Portal. create a new customer and assign the customer to the "unstable" channel.  Select a date for the customer to expire and select "Trial" for the license type.
-- After customer saving the customer profile, download the customer license using the first of the three icons on the right side of the screen.
-6. Install the Kots kubectl plugin via the command line:
+## Create a new Kots application in the Replicated Vendor Portal and obtain a service token 
+1. Create a new application and name it
+2. Open the Settings page
+3. Copy the Application Slug and run this command with your application slug:
 ```shell
-curl https://kots.io/install | bash
+export REPLICATED_APP=your-application-slug
 ```
-7. Install the Application via the command line
-- Return to the Channels page and at the bottom of the Unstable channel select the "embedded" cluster option and copy that command
-- Paste the install command in your CLI
-8. Test the deployment: 
-- Choose `your namespace` which will be the namespace for every component of the application and in the Kots admin console
+4. In the settings menu, create a read/write capable service account token
+5. Copy token then run this command with your token to export it:
 ```shell
-kubectl kots install your-app-slug
+export REPLICATED_API_TOKEN=your_token
 ```
-You will be prompted to provide a namespace to install into as well as a password (to control access to the admin console), and then to connect to http://localhost:30888 , where you can login with the password you just specified, and then upload the customer license.
-9. Clean up
+6. Run the following comman to verify the values are set correctly (all values in the output should be empty):
 ```shell
-kubectl delete ns your-namespace
+replicated release ls
 ```
+7. Select the releases tab of the Vendor portal, click "create release," delete the existing example yaml files and upload the yaml files from the `manifests` directory of this repo.  This includes files for Wordpress, MySQL and the Kots specific yaml specs.  
+8. Create a release and promote that release to the Unstable deployment channel
+## Modify the Kubernetes Installer
+1. Open the installer.yaml file from this repo and copy it.
+2. On the left menu of the Replicated Vendor Portal, click on "Kubernetes Installer" and create a new installer.  Paste the contents of installer.yaml into the window and save.
+3. Promote the new installer to channel: Unstable
+## Create a customer and download an application license
+1. Select "Customers" on the left menu of the Replicated Vendor Portal. create a new customer and assign the customer to the "unstable" channel.  Select a date for the customer to expire and select "Trial" for the license type.
+2. After saving the customer profile, download the customer license using the first of the three icons on the right side of the screen.  Save this file to be uploaded later.
+## Install the Application via the command line:
+1. Return to the Channels page in the Replicated Vendor Portal and at the bottom of the Unstable channel select the "embedded" cluster option and copy that command (it will look similar to the one below):
+```shell
+curl -sSL https://kurl.sh/app-slug-channel | sudo bash
+```
+2. Paste the install command in your CLI and execute
+## Test the deployment: 
+1. After the installation is complete, in your CLI under the message "Installation complete," copy and paste the Kotsadm url (http://localhost:8800) into your browser, then use the password provided to login.
+2. You will be presented with a TLS warning and can select "Continue to Setup"
+3. The next page will present you with the option to add a private key and certificate or to "Skip and continue"
+4. At the next page, apply the license generated earlier when the customer was created
+5. Choose the port 30888
+6. At this point you will have access to the Replicated Admin portal for the application 
+7. Validate the Wordpress App is running by opening a new tab in your browser and navigating to http://localhost:30888
+
 # Replicated Notes
 ## Managing Releases with the CLI Documentation Page
 - In some aspects of the Managing Releases with the CLI section, a "$" is left in the beginning of the command.  When you copy using the button on the page it copies the "$" sign resulting in a `command not found`
