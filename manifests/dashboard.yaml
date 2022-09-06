@@ -12,6 +12,6 @@ spec:
   descriptor:
     links:
       - description: "Check Wordpress!"
-        url: http://54.191.26.84:30889
+        url: http://54.191.26.84:30888
       - description: "View Repos"
         url: https://github.com/danryan621/kots-wordpress.git
